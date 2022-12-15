@@ -13,7 +13,11 @@ struct BusinessDetailView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .leading) {
+                Text("\(business.location.address)\n\(business.location.city), \(business.location.country)")
+                
+                Divider()
+                
                 Chart {
                     ForEach(business.revenue) { revenuePoint in
                         LineMark(x: .value(revenuePoint.dateValue, revenuePoint.date!),
@@ -21,6 +25,9 @@ struct BusinessDetailView: View {
                     }
                 }
                 .frame(height: 300)
+                
+                Divider()
+                
                 VStack {
                     ForEach(business.revenue) { revenuePoint in
                         HStack {

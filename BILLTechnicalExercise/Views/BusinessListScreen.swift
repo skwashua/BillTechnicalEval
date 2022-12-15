@@ -35,12 +35,8 @@ struct BusinessRow: View {
     
     var body: some View {
         HStack(spacing: 0) {
-            VStack(alignment: .leading) {
-                Text(business.name)
-                    .font(.headline)
-                Text(business.location.address)
-                    .font(.caption)
-            }
+            Text(business.name)
+                .font(.headline)
             Spacer()
             Text("$\(Int(business.lastRevenueValue))")
         }
