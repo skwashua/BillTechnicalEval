@@ -7,15 +7,17 @@
 
 import Foundation
 
-struct Business: Decodable, Identifiable, Hashable {
+struct Business: Decodable, Identifiable {
     var id: Int
     var name: String
     var location: Location
     var revenue: [RevenuePoint] = []
     var lastRevenueValue: Double {
-        return revenue.last?.value ?? 0.0
+        return revenue.first?.value ?? 0.0
     }
-    
+}
+
+extension Business: Hashable {
     static func == (lhs: Business, rhs: Business) -> Bool {
         return lhs.id == rhs.id
     }

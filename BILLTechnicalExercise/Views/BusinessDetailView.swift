@@ -16,7 +16,7 @@ struct BusinessDetailView: View {
             VStack {
                 Chart {
                     ForEach(business.revenue) { revenuePoint in
-                        LineMark(x: .value(revenuePoint.dateValue, revenuePoint.seq),
+                        LineMark(x: .value(revenuePoint.dateValue, revenuePoint.date!),
                                  y: .value("value", revenuePoint.value))
                     }
                 }
@@ -24,9 +24,9 @@ struct BusinessDetailView: View {
                 VStack {
                     ForEach(business.revenue) { revenuePoint in
                         HStack {
-                            Text(revenuePoint.dateValue)
+                            Text(revenuePoint.shordDate ?? "")
                             Spacer()
-                            Text(String(format: "$%.2f", revenuePoint.value))
+                            Text(revenuePoint.formattedValue ?? "")
                         }
                         Divider()
                             .padding(.bottom, 4)
