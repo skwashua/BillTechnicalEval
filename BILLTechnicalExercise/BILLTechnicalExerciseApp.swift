@@ -11,7 +11,7 @@ import SwiftUI
 struct BILLTechnicalExerciseApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BusinessListScreen()
         }
     }
 }
